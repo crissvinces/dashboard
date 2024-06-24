@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'*/
 import './App.css'
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import Indicator from './components/Indicator';
+import Summary from './components/Summary';
 
 function App() {
   const [] = useState(0)
@@ -18,6 +19,7 @@ function App() {
 	      <Grid xs={6} sm={4} md={6} lg={2}>5</Grid>
 	      <Grid xs={6} sm={4} md={6} lg={2}>6</Grid>
         <Indicator title='Precipitación' subtitle='Probabilidad' value={0.13} />
+        <Summary></Summary>
 	    </Grid>
    /* <>
       <div>
