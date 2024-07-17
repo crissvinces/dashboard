@@ -1,33 +1,39 @@
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
+// src/components/Summary.tsx
 
-import sunrise from '../assets/sunrise.jpeg'
+import React from "react";
+import { Typography, Card, CardContent, CardMedia, CardActionArea } from "@mui/material";
 
-export default function Summary() {
-    return (
-        <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={sunrise}
-                    alt="Amanecer"
-                />
-                <CardContent>
-                    <Typography gutterBottom component="h2" variant="h6" color="primary">
-                        Amanecer
-                    </Typography>
-                    <Typography component="p" variant="h4">
-                        05:19:08
-                    </Typography>
-                    <Typography color="text.secondary" sx={{ flex: 1 }}>
-                        en 17 Junio, 2024
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
-    )
+interface SummaryProps {
+  day: string;
+  temperature: string;
+  date: string;
+  icon: string;
 }
+
+const Summary: React.FC<SummaryProps> = ({ day, temperature, date, icon }) => {
+  return (
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+          alt="weather icon"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h6" color="primary">
+            {day}
+          </Typography>
+          <Typography variant="h4">
+            {temperature}
+          </Typography>
+          <Typography color="text.secondary">
+            {date}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+};
+
+export default Summary;
